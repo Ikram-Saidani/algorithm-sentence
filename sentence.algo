@@ -1,0 +1,47 @@
+ALGORITHM sentence
+VAR
+    str : STRING
+    i,j : INTEGER
+    sentenceLength : INTEGER
+    char : INTEGER
+    words : INTEGER
+    vowels : INTEGER
+    vowels_array : array of character
+BEGIN
+writeln("Enter the sentence")
+readln(str)
+//length of the sentence
+sentenceLength:=0
+FOR i FROM 1 TO str.length-1 DO //str[str.length]=='.'
+sentenceLength:=sentenceLength+1
+END_FOR
+writeln("The length of the sentence is",sentenceLength)
+//number of the character in the sentence
+char:=0
+FOR i FROM 1 TO str.length-1 DO //str[str.length]=='.'
+    IF (str[i] != " ") THEN
+        char:=char+1
+    END_IF
+END_FOR
+writeln("The number of the character in the sentence is",char)
+//number of words in the sentence
+//first word
+words:=1
+FOR i FROM 1 TO str.length DO
+    IF (str[i] == " ") THEN
+    words:=words+1
+    END_IF
+END_FOR
+writeln("The number of words in the sentence is",words)
+//number of vowels in the sentence
+vowels_array:=["a","e","i","o","u","A","E","I","O","U"]
+vowels:=0
+FOR i FROM 1 TO str.length DO
+    FOR j FROM 1 TO vowels_array.length DO
+        IF (str[i] == vowels_array[j]) THEN
+        vowels:=vowels+1
+        END_IF
+    END_FOR
+END_FOR
+writeln("The number of vowels in the sentence is",vowels)
+END
